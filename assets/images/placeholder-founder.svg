@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" role="img" aria-labelledby="phTitle2 phDesc2">
+  <title id="phTitle2">Photo placeholder</title>
+  <desc id="phDesc2">Space reserved for a real photo of the founder</desc>
+  <rect width="640" height="640" fill="#e7ede9"/>
+  <rect x="10" y="10" width="620" height="620" fill="none" stroke="#2f4a3d" stroke-width="3" stroke-dasharray="10 8"/>
+  <g fill="none" stroke="#2f4a3d" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="320" cy="255" r="70"/>
+    <path d="M195 460 q125 -110 250 0" />
+  </g>
+  <text x="320" y="530" font-family="Georgia, serif" font-size="20" fill="#2a2620" text-anchor="middle">[PLACEHOLDER PHOTO]</text>
+  <text x="320" y="558" font-family="Arial, sans-serif" font-size="14" fill="#55504a" text-anchor="middle">Founder photo, replace before launch</text>
+</svg>

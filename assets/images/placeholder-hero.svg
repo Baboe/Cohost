@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-labelledby="phTitle phDesc">
+  <title id="phTitle">Photo placeholder</title>
+  <desc id="phDesc">Space reserved for a real photo of a Périgord stone house with a pool</desc>
+  <rect width="800" height="600" fill="#f1e9db"/>
+  <rect x="12" y="12" width="776" height="576" fill="none" stroke="#a89572" stroke-width="3" stroke-dasharray="10 8"/>
+  <g fill="none" stroke="#a89572" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="330" y="255" width="140" height="100" rx="8"/>
+    <circle cx="400" cy="285" r="22"/>
+    <path d="M330 335 l35 -40 30 30 25 -25 50 45" />
+  </g>
+  <text x="400" y="400" font-family="Georgia, serif" font-size="22" fill="#55504a" text-anchor="middle">[PLACEHOLDER PHOTO]</text>
+  <text x="400" y="428" font-family="Arial, sans-serif" font-size="15" fill="#55504a" text-anchor="middle">Stone-built Périgord property, replace with a real photo</text>
+</svg>
