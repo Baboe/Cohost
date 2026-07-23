@@ -8,4 +8,27 @@
     <xhtml:link rel="alternate" hreflang="nl" href="https://cohostdordogne.com/nl/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://cohostdordogne.com/"/>
   </url>
+  <url>
+    <loc>https://cohostdordogne.com/fr/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cohostdordogne.com/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://cohostdordogne.com/fr/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://cohostdordogne.com/nl/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cohostdordogne.com/"/>
+  </url>
+  <url>
+    <loc>https://cohostdordogne.com/nl/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cohostdordogne.com/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://cohostdordogne.com/fr/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://cohostdordogne.com/nl/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cohostdordogne.com/"/>
+  </url>
+  <url>
+    <loc>https://cohostdordogne.com/airbnb-management-bergerac/</loc>
+  </url>
+  <url>
+    <loc>https://cohostdordogne.com/reglementation-meubles-tourisme-2025/</loc>
+  </url>
+  <url>
+    <loc>https://cohostdordogne.com/mentions-legales/</loc>
+  </url>
 </urlset>
