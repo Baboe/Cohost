@@ -37,7 +37,7 @@ body {
   margin: 0;
   font-family: var(--font-sans);
   color: var(--color-ink);
-  background: var(--color-cream);
+  background: var(--color-white);
   line-height: 1.6;
   font-size: 1.0625rem;
 }
@@ -116,7 +116,7 @@ summary:focus-visible {
 /* Header */
 
 .site-header {
-  background: var(--color-cream);
+  background: var(--color-white);
 }
 
 .header-inner {
