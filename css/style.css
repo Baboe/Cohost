@@ -1,19 +1,19 @@
 /* CoHost Dordogne — shared stylesheet. No build step: plain CSS, mobile-first.
-   Palette drawn from real Périgord materials, pushed more vibrant/saturated:
-   limestone cream, morning-mist grey, terracotta roof tile (coral), golden
-   stone (apricot), Dordogne river sky (blue), green shutters. */
+   Palette: soft cream, dusty coral/salmon, warm apricot, pastel sky-blue,
+   cool grey neutral, one dark teal anchor. Light group always pairs with
+   ink text; the single dark group always pairs with cream text. */
 
 :root {
-  --color-cream: #fbf2e3;
-  --color-mist: #e2e5f1;
-  --color-stone-line: #b79f72;
-  --color-coral: #e85a34;
-  --color-coral-deep: #b23d1f;
-  --color-apricot: #f2a73e;
-  --color-sky: #4fb3d9;
-  --color-sky-deep: #1f7897;
-  --color-green: #1f5b45;
-  --color-green-dark: #16241d;
+  --color-cream: #fdf6ea;
+  --color-mist: #b8bbc0;
+  --color-stone-line: #c9b79a;
+  --color-coral: #f4bba7;
+  --color-coral-text: #b23d1f;
+  --color-coral-solid: #d54b23;
+  --color-apricot: #f3b874;
+  --color-sky: #acecfc;
+  --color-teal-dark: #17323a;
+  --color-teal-mid: #1f4048;
   --color-ink: #231b14;
   --color-white: #ffffff;
   --color-focus: #1d5fd6;
@@ -76,7 +76,7 @@ p {
 }
 
 a {
-  color: var(--color-coral-deep);
+  color: var(--color-coral-text);
 }
 
 a:hover {
@@ -193,9 +193,9 @@ summary:focus-visible {
 }
 
 .lang-switch a[aria-current="true"] {
-  background: var(--color-green);
+  background: var(--color-teal-dark);
   color: var(--color-cream);
-  border-color: var(--color-green);
+  border-color: var(--color-teal-dark);
 }
 
 /* Nav toggle: round icon button + full overlay panel, no JS */
@@ -211,7 +211,7 @@ summary:focus-visible {
   width: 3rem;
   height: 3rem;
   border-radius: 50%;
-  background: var(--color-green-dark);
+  background: var(--color-teal-dark);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -257,7 +257,7 @@ summary:focus-visible {
   position: fixed;
   inset: 4vh 4vw;
   z-index: 50;
-  background: var(--color-green-dark);
+  background: var(--color-teal-dark);
   border-radius: var(--radius-lg);
   padding: 5rem 2rem 2rem;
   display: flex;
@@ -329,17 +329,17 @@ summary:focus-visible {
 }
 
 .btn-primary:hover {
-  background: var(--color-coral-deep);
+  background: var(--color-coral-text);
   color: var(--color-cream);
 }
 
 .btn-dark {
-  background: var(--color-green-dark);
+  background: var(--color-teal-dark);
   color: var(--color-cream);
 }
 
 .btn-dark:hover {
-  background: var(--color-green);
+  background: var(--color-teal-mid);
   color: var(--color-cream);
 }
 
@@ -438,19 +438,13 @@ summary:focus-visible {
   color: var(--color-ink);
 }
 
-/* Dark group: always paired with cream text. */
-.block-green {
-  background: var(--color-green);
+/* Dark group: single dark teal anchor, always paired with cream text. */
+.block-dark {
+  background: var(--color-teal-dark);
   color: var(--color-cream);
 }
 
-.block-green-dark {
-  background: var(--color-green-dark);
-  color: var(--color-cream);
-}
-
-.block-green a:not(.btn),
-.block-green-dark a:not(.btn) {
+.block-dark a:not(.btn) {
   color: inherit;
   text-decoration-underline-offset: 3px;
 }
@@ -482,20 +476,20 @@ summary:focus-visible {
   line-height: 1.5;
 }
 
-.accent-copy--green {
-  color: var(--color-green);
+.accent-copy--teal {
+  color: var(--color-teal-dark);
 }
 
 .accent-copy--coral {
-  color: var(--color-coral-deep);
+  color: var(--color-coral-text);
 }
 
-/* Pill tags */
+/* Pill tags — the "highlighter" chip look, also used inline as .hl */
 
 .tag-pill {
   display: inline-block;
-  border-radius: 999px;
-  padding: 0.35em 0.9em;
+  border-radius: 8px;
+  padding: 0.3em 0.7em;
   font-size: 0.85rem;
   font-weight: 700;
   background: rgba(35, 27, 20, 0.08);
@@ -503,13 +497,32 @@ summary:focus-visible {
   margin: 0 0.4em 0.4em 0;
 }
 
-.block-green .tag-pill,
-.block-green-dark .tag-pill {
+.block-dark .tag-pill {
   background: rgba(250, 243, 231, 0.18);
 }
 
 .tag-list {
   margin-top: 1rem;
+}
+
+/* Inline highlight marks — a soft "highlighter pen" over a key phrase.
+   Used sparingly (a handful of times), not on every paragraph. */
+
+.hl {
+  background: var(--color-coral);
+  color: var(--color-ink);
+  padding: 0.05em 0.35em;
+  border-radius: 6px;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+.hl-apricot {
+  background: var(--color-apricot);
+}
+
+.hl-sky {
+  background: var(--color-sky);
 }
 
 /* Hero */
@@ -532,7 +545,7 @@ summary:focus-visible {
 
 .hero-main {
   border-radius: var(--radius-lg);
-  background: var(--color-mist);
+  background: var(--color-apricot);
   padding: 2.5rem 1.75rem;
 }
 
@@ -550,7 +563,7 @@ summary:focus-visible {
   text-transform: uppercase;
   letter-spacing: 0.08em;
   font-size: 0.85rem;
-  color: var(--color-coral-deep);
+  color: var(--color-coral-text);
   font-weight: 700;
   margin-bottom: 0.75rem;
 }
@@ -570,7 +583,7 @@ summary:focus-visible {
 .hero-figure {
   border-radius: var(--radius-lg);
   overflow: hidden;
-  background: var(--color-green);
+  background: var(--color-teal-dark);
   display: flex;
   align-items: stretch;
 }
@@ -703,7 +716,7 @@ summary:focus-visible {
   font-weight: 700;
   font-size: 1.3rem;
   color: var(--color-cream);
-  background: var(--color-coral);
+  background: var(--color-coral-solid);
   width: 2.25rem;
   height: 2.25rem;
   border-radius: 50%;
@@ -783,7 +796,7 @@ summary:focus-visible {
 /* Footer */
 
 .site-footer {
-  background: var(--color-green-dark);
+  background: var(--color-teal-dark);
   color: rgba(251, 242, 227, 0.75);
   padding: 3rem 0 1.5rem;
   font-size: 0.92rem;
