@@ -1,15 +1,18 @@
 /* CoHost Dordogne — shared stylesheet. No build step: plain CSS, mobile-first.
-   Palette drawn from real Périgord materials: limestone cream, sandstone,
-   terracotta roof tile, golden stone, green shutters. */
+   Palette drawn from real Périgord materials, pushed more vibrant/saturated:
+   limestone cream, morning-mist grey, terracotta roof tile (coral), golden
+   stone (apricot), Dordogne river sky (blue), green shutters. */
 
 :root {
-  --color-cream: #faf3e7;
-  --color-stone: #e4d4b9;
+  --color-cream: #fbf2e3;
+  --color-mist: #e2e5f1;
   --color-stone-line: #b79f72;
-  --color-terracotta: #c1502e;
-  --color-terracotta-deep: #8c3a1f;
-  --color-ochre: #d98c2b;
-  --color-green: #2f4a3d;
+  --color-coral: #e85a34;
+  --color-coral-deep: #b23d1f;
+  --color-apricot: #f2a73e;
+  --color-sky: #4fb3d9;
+  --color-sky-deep: #1f7897;
+  --color-green: #1f5b45;
   --color-green-dark: #16241d;
   --color-ink: #231b14;
   --color-white: #ffffff;
@@ -73,11 +76,11 @@ p {
 }
 
 a {
-  color: var(--color-terracotta-deep);
+  color: var(--color-coral-deep);
 }
 
 a:hover {
-  color: var(--color-terracotta);
+  color: var(--color-coral);
 }
 
 a:focus-visible,
@@ -167,7 +170,7 @@ summary:focus-visible {
 
 .nav-links a:hover,
 .nav-links a[aria-current="page"] {
-  background: var(--color-stone);
+  background: var(--color-mist);
   color: var(--color-ink);
 }
 
@@ -283,7 +286,7 @@ summary:focus-visible {
 }
 
 .nav-overlay .overlay-links a:hover {
-  color: var(--color-ochre);
+  color: var(--color-apricot);
 }
 
 .nav-overlay .lang-switch a {
@@ -292,8 +295,8 @@ summary:focus-visible {
 }
 
 .nav-overlay .lang-switch a[aria-current="true"] {
-  background: var(--color-ochre);
-  border-color: var(--color-ochre);
+  background: var(--color-apricot);
+  border-color: var(--color-apricot);
   color: var(--color-ink);
 }
 
@@ -321,12 +324,12 @@ summary:focus-visible {
 }
 
 .btn-primary {
-  background: var(--color-terracotta);
-  color: var(--color-cream);
+  background: var(--color-coral);
+  color: var(--color-ink);
 }
 
 .btn-primary:hover {
-  background: var(--color-terracotta-deep);
+  background: var(--color-coral-deep);
   color: var(--color-cream);
 }
 
@@ -356,7 +359,7 @@ summary:focus-visible {
 }
 
 .btn-on-dark:hover {
-  background: var(--color-ochre);
+  background: var(--color-apricot);
 }
 
 /* Sections */
@@ -408,42 +411,48 @@ summary:focus-visible {
   overflow: hidden;
 }
 
+/* Light group: always paired with ink text (all pass 4.5:1+ AA). */
 .block-cream {
   background: var(--color-cream);
   color: var(--color-ink);
   border: 1px solid var(--color-stone-line);
 }
 
-.block-stone {
-  background: var(--color-stone);
+.block-mist {
+  background: var(--color-mist);
   color: var(--color-ink);
 }
 
-.block-terracotta {
-  background: var(--color-terracotta);
-  color: var(--color-cream);
-}
-
-.block-ochre {
-  background: var(--color-ochre);
+.block-apricot {
+  background: var(--color-apricot);
   color: var(--color-ink);
 }
 
+.block-sky {
+  background: var(--color-sky);
+  color: var(--color-ink);
+}
+
+.block-coral {
+  background: var(--color-coral);
+  color: var(--color-ink);
+}
+
+/* Dark group: always paired with cream text. */
 .block-green {
   background: var(--color-green);
   color: var(--color-cream);
 }
 
-.block-green a:not(.btn),
-.block-terracotta a:not(.btn),
-.block-green-dark a:not(.btn) {
-  color: inherit;
-  text-decoration-underline-offset: 3px;
-}
-
 .block-green-dark {
   background: var(--color-green-dark);
   color: var(--color-cream);
+}
+
+.block-green a:not(.btn),
+.block-green-dark a:not(.btn) {
+  color: inherit;
+  text-decoration-underline-offset: 3px;
 }
 
 .block h2,
@@ -464,6 +473,23 @@ summary:focus-visible {
   margin-bottom: 0.75rem;
 }
 
+/* Accent copy: serif body text in an accent color, used sparingly to break
+   up the sans/ink default — a handful of passages, not every paragraph. */
+
+.accent-copy {
+  font-family: var(--font-serif);
+  font-size: 1.15em;
+  line-height: 1.5;
+}
+
+.accent-copy--green {
+  color: var(--color-green);
+}
+
+.accent-copy--coral {
+  color: var(--color-coral-deep);
+}
+
 /* Pill tags */
 
 .tag-pill {
@@ -477,7 +503,6 @@ summary:focus-visible {
   margin: 0 0.4em 0.4em 0;
 }
 
-.block-terracotta .tag-pill,
 .block-green .tag-pill,
 .block-green-dark .tag-pill {
   background: rgba(250, 243, 231, 0.18);
@@ -507,7 +532,7 @@ summary:focus-visible {
 
 .hero-main {
   border-radius: var(--radius-lg);
-  background: var(--color-stone);
+  background: var(--color-mist);
   padding: 2.5rem 1.75rem;
 }
 
@@ -525,7 +550,7 @@ summary:focus-visible {
   text-transform: uppercase;
   letter-spacing: 0.08em;
   font-size: 0.85rem;
-  color: var(--color-terracotta-deep);
+  color: var(--color-coral-deep);
   font-weight: 700;
   margin-bottom: 0.75rem;
 }
@@ -678,7 +703,7 @@ summary:focus-visible {
   font-weight: 700;
   font-size: 1.3rem;
   color: var(--color-cream);
-  background: var(--color-terracotta);
+  background: var(--color-coral);
   width: 2.25rem;
   height: 2.25rem;
   border-radius: 50%;
@@ -759,7 +784,7 @@ summary:focus-visible {
 
 .site-footer {
   background: var(--color-green-dark);
-  color: var(--color-stone);
+  color: rgba(251, 242, 227, 0.75);
   padding: 3rem 0 1.5rem;
   font-size: 0.92rem;
   margin-top: 1.25rem;
