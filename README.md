@@ -38,7 +38,7 @@ across all files will catch every one. Search the whole project for
 | Placeholder | Appears in | What to do |
 |---|---|---|
 | `[PLACEHOLDER: FORM ENDPOINT URL]` | The `<form action="...">` on every page with a contact form | See **Swapping the contact form endpoint** below |
-| `[PLACEHOLDER PHOTO]` / `[PLACEHOLDER FOTO]` | Hero and founder image placeholders (SVG files in `assets/images/`) | Replace the `<img src="...">` with a real photo, update the `alt` text to describe the real image, and remove the `[PLACEHOLDER]` caption text underneath |
+| `[PLACEHOLDER PHOTO]` / `[PLACEHOLDER FOTO]` | Hero property photo (SVG placeholder, `assets/images/placeholder-hero.svg`), used on every homepage/landing page and as the default social-share image for every page | Replace the `<img src="...">` with a real photo, update the `alt` text to describe the real image, and remove the `[PLACEHOLDER]` caption text underneath |
 | `[PLACEHOLDER: nom de l'hébergeur]` / `[PLACEHOLDER: adresse de l'hébergeur]` / `[PLACEHOLDER: site web ou contact de l'hébergeur]` | `/mentions-legales/` only | Fill in with your actual hosting provider's name, registered address and contact once you've chosen where to deploy — required by French law |
 | `[PLACEHOLDER: nom et coordonnées du médiateur de la consommation...]` | `/mentions-legales/` only | French consumer-mediation clause. If you're not required to designate one (check with an accountant/lawyer), you can remove this paragraph instead of filling it in |
 
@@ -49,12 +49,16 @@ client counts, or contact details, so placeholders stand in until the real
 values exist.
 
 Note: the business's legal identity (publisher name, SIRET, registered
-address, auto-entrepreneur status), contact email (Bonjour@cohostdordogne.com)
-and WhatsApp number (+33 7 62 67 89 04) are **already filled in** across every
-page and in the `LocalBusiness` JSON-LD — those are not placeholders. The
-IBAN provided during the build was deliberately **left out of the site
-entirely**, since a bank account number isn't required for `mentions légales`
-and only adds fraud/phishing surface.
+address, auto-entrepreneur status), contact email (Bonjour@cohostdordogne.com),
+WhatsApp number (+33 7 62 67 89 04) and the founder photo
+(`assets/images/founder.jpg`, used on the EN/FR/NL homepages and referenced
+in `LocalBusiness` JSON-LD everywhere) are **already filled in** — those are
+not placeholders. The IBAN provided during the build was deliberately
+**left out of the site entirely**, since a bank account number isn't
+required for `mentions légales` and only adds fraud/phishing surface.
+
+Only the **hero property photo** still needs a real image — see the table
+above.
 
 ## Swapping the contact form endpoint
 
@@ -130,7 +134,8 @@ Still outstanding — these require the real business details above, not
 something a QA pass can catch on its own:
 
 - [ ] Replace every `[PLACEHOLDER: ...]` per the table above
-- [ ] Add real photos and update their `alt` text
+- [ ] Add a real hero property photo and update its `alt` text (founder
+      photo is already in place)
 - [ ] Point the contact form at a real endpoint and test a live submission
 - [ ] Fill in the hosting-provider block in `/mentions-legales/` once a host
       is chosen
