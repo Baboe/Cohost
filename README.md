@@ -37,9 +37,6 @@ across all files will catch every one. Search the whole project for
 
 | Placeholder | Appears in | What to do |
 |---|---|---|
-| `[PLACEHOLDER: hello@cohostdordogne.com]` | Every page (footer, contact section, JSON-LD, mentions légales) | Replace with the real contact email, in both the visible text **and** the `mailto:` link |
-| `[PLACEHOLDER: +33 6 XX XX XX XX]` | JSON-LD `telephone` field on every page | Replace with a real phone number, or delete the `telephone` line entirely if you don't want one listed |
-| `[PLACEHOLDER: +33 6 00 00 00 00]` / `[PLACEHOLDER: 33600000000]` | WhatsApp link in the contact section and footer of every page | Replace both — the visible number and the digits-only version in the `wa.me/` URL (no `+`, no spaces, no leading `0` after the country code) |
 | `[PLACEHOLDER: FORM ENDPOINT URL]` | The `<form action="...">` on every page with a contact form | See **Swapping the contact form endpoint** below |
 | `[PLACEHOLDER PHOTO]` / `[PLACEHOLDER FOTO]` | Hero and founder image placeholders (SVG files in `assets/images/`) | Replace the `<img src="...">` with a real photo, update the `alt` text to describe the real image, and remove the `[PLACEHOLDER]` caption text underneath |
 | `[PLACEHOLDER: nom de l'hébergeur]` / `[PLACEHOLDER: adresse de l'hébergeur]` / `[PLACEHOLDER: site web ou contact de l'hébergeur]` | `/mentions-legales/` only | Fill in with your actual hosting provider's name, registered address and contact once you've chosen where to deploy — required by French law |
@@ -52,11 +49,12 @@ client counts, or contact details, so placeholders stand in until the real
 values exist.
 
 Note: the business's legal identity (publisher name, SIRET, registered
-address, auto-entrepreneur status) is **already filled in** on
-`/mentions-legales/` and in the `LocalBusiness` JSON-LD on every page — those
-are not placeholders. The IBAN provided during the build was deliberately
-**left out of the site entirely**, since a bank account number isn't
-required for `mentions légales` and only adds fraud/phishing surface.
+address, auto-entrepreneur status), contact email (Bonjour@cohostdordogne.com)
+and WhatsApp number (+33 7 62 67 89 04) are **already filled in** across every
+page and in the `LocalBusiness` JSON-LD — those are not placeholders. The
+IBAN provided during the build was deliberately **left out of the site
+entirely**, since a bank account number isn't required for `mentions légales`
+and only adds fraud/phishing surface.
 
 ## Swapping the contact form endpoint
 
