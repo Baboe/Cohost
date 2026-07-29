@@ -378,6 +378,11 @@ summary:focus-visible {
   opacity: 0.85;
 }
 
+.block-dark .section-intro p {
+  color: var(--color-coral);
+  opacity: 1;
+}
+
 /* Bento blocks */
 
 .bento {
