@@ -38,6 +38,7 @@ across all files will catch every one. Search the whole project for
 | Placeholder | Appears in | What to do |
 |---|---|---|
 | `[PLACEHOLDER: FORM ENDPOINT URL]` | The `<form action="...">` on every page with a contact form | See **Swapping the contact form endpoint** below |
+| `[PLACEHOLDER: STRIPE PAYMENT LINK URL]` | `/sterrendossier/` only — the two "Bestel je Sterrendossier" buttons | See **Swapping the Stripe payment link** below |
 | `[PLACEHOLDER PHOTO]` / `[PLACEHOLDER FOTO]` | Hero property photo (SVG placeholder, `assets/images/placeholder-hero.svg`), used on every homepage/landing page and as the default social-share image for every page | Replace the `<img src="...">` with a real photo, update the `alt` text to describe the real image, and remove the `[PLACEHOLDER]` caption text underneath |
 | `[PLACEHOLDER: nom de l'hébergeur]` / `[PLACEHOLDER: adresse de l'hébergeur]` / `[PLACEHOLDER: site web ou contact de l'hébergeur]` | `/mentions-legales/` only | Fill in with your actual hosting provider's name, registered address and contact once you've chosen where to deploy — required by French law |
 | `[PLACEHOLDER: nom et coordonnées du médiateur de la consommation...]` | `/mentions-legales/` only | French consumer-mediation clause. If you're not required to designate one (check with an accountant/lawyer), you can remove this paragraph instead of filling it in |
@@ -59,6 +60,33 @@ required for `mentions légales` and only adds fraud/phishing surface.
 
 Only the **hero property photo** still needs a real image — see the table
 above.
+
+## Swapping the Stripe payment link
+
+The Sterrendossier page (`/sterrendossier/`) sells a €149 report. It uses a
+plain Stripe **Payment Link** — no Stripe SDK, no JavaScript, no server-side
+code, so the site stays a static site.
+
+To set it up: in the Stripe Dashboard go to **Payment links → + New**, create
+a link for a €149 one-off product, and copy the resulting URL. Then search
+`/sterrendossier/index.html` for `STRIPE PAYMENT LINK` and replace the `href`
+value in **both** places (the hero button and the pricing-block button — they
+should point at the same link):
+
+```html
+<a class="btn btn-primary" href="[PLACEHOLDER: STRIPE PAYMENT LINK URL]">Bestel je Sterrendossier — €149</a>
+```
+
+Stripe hosts the checkout page itself, so nothing else needs configuring. Set
+the post-payment confirmation/redirect and the receipt email inside the
+Stripe Payment Link settings.
+
+Two things worth doing before taking real money: enable a **refund policy**
+in Stripe that matches the "Niet tevreden? Geld terug, geen vragen." promise
+on the page, and add Stripe to the "Formulaire de contact et service tiers"
+and "Cookies et traceurs" sections of `/mentions-legales/` — Stripe's
+checkout is a third-party processor handling customer data, so the privacy
+section should name it.
 
 ## Swapping the contact form endpoint
 
