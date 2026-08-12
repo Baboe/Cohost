@@ -2,6 +2,13 @@
 # so Google stops indexing www / http duplicates of every page.
 # See README.md "Canonical host" section if deploying elsewhere.
 
+# Serve search-engine site-verification files directly on every host/scheme —
+# verification bots check the exact host you registered the site under and
+# don't treat a redirect as a pass, so these must not be canonicalized away.
+https://www.cohostdordogne.com/BingSiteAuth.xml  /BingSiteAuth.xml  200!
+http://www.cohostdordogne.com/BingSiteAuth.xml   /BingSiteAuth.xml  200!
+http://cohostdordogne.com/BingSiteAuth.xml       /BingSiteAuth.xml  200!
+
 https://www.cohostdordogne.com/*  https://cohostdordogne.com/:splat  301!
 http://www.cohostdordogne.com/*   https://cohostdordogne.com/:splat  301!
 http://cohostdordogne.com/*       https://cohostdordogne.com/:splat  301!

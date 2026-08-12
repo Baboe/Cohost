@@ -1,9 +1,9 @@
 {
   "redirects": [
     {
-      "source": "/:path*",
+      "source": "/((?!BingSiteAuth\\.xml$).*)",
       "has": [{ "type": "host", "value": "www.cohostdordogne.com" }],
-      "destination": "https://cohostdordogne.com/:path*",
+      "destination": "https://cohostdordogne.com/$1",
       "permanent": true
     }
   ]
