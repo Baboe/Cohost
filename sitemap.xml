@@ -3,6 +3,7 @@
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://cohostdordogne.com/</loc>
+    <lastmod>2026-08-12</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://cohostdordogne.com/"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://cohostdordogne.com/fr/"/>
     <xhtml:link rel="alternate" hreflang="nl" href="https://cohostdordogne.com/nl/"/>
@@ -10,6 +11,7 @@
   </url>
   <url>
     <loc>https://cohostdordogne.com/fr/</loc>
+    <lastmod>2026-08-12</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://cohostdordogne.com/"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://cohostdordogne.com/fr/"/>
     <xhtml:link rel="alternate" hreflang="nl" href="https://cohostdordogne.com/nl/"/>
@@ -17,6 +19,7 @@
   </url>
   <url>
     <loc>https://cohostdordogne.com/nl/</loc>
+    <lastmod>2026-08-12</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://cohostdordogne.com/"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://cohostdordogne.com/fr/"/>
     <xhtml:link rel="alternate" hreflang="nl" href="https://cohostdordogne.com/nl/"/>
@@ -24,14 +27,18 @@
   </url>
   <url>
     <loc>https://cohostdordogne.com/sterrendossier/</loc>
+    <lastmod>2026-08-12</lastmod>
   </url>
   <url>
     <loc>https://cohostdordogne.com/airbnb-management-bergerac/</loc>
+    <lastmod>2026-08-12</lastmod>
   </url>
   <url>
     <loc>https://cohostdordogne.com/reglementation-meubles-tourisme-2025/</loc>
+    <lastmod>2026-08-12</lastmod>
   </url>
   <url>
     <loc>https://cohostdordogne.com/mentions-legales/</loc>
+    <lastmod>2026-08-12</lastmod>
   </url>
 </urlset>

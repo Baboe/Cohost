@@ -1,0 +1,20 @@
+# Apache redirect rules — force the single canonical host (https://cohostdordogne.com)
+# so Google stops indexing www / http duplicates of every page.
+# See README.md "Canonical host" section if deploying elsewhere.
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # Force HTTPS
+  RewriteCond %{HTTPS} off
+  RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+  # Force apex domain (redirect www to non-www), except search-engine
+  # site-verification files — verification bots check the exact host you
+  # registered under and don't treat a redirect as a pass
+  RewriteCond %{HTTP_HOST} ^www\.cohostdordogne\.com$ [NC]
+  RewriteCond %{REQUEST_URI} !^/BingSiteAuth\.xml$
+  RewriteRule ^(.*)$ https://cohostdordogne.com/$1 [L,R=301]
+</IfModule>
+
+ErrorDocument 404 /404.html

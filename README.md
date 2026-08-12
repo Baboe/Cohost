@@ -21,6 +21,10 @@ whole site works, including navigation between pages.
 /assets/images/                      SVG placeholder images + favicon
 /robots.txt
 /sitemap.xml
+/404.html                            Custom not-found page (noindex)
+/_redirects                          Netlify: canonical-host redirects
+/vercel.json                         Vercel: canonical-host redirects
+/.htaccess                           Apache: canonical-host redirects + 404 wiring
 ```
 
 Every page is a self-contained `index.html` in its own folder, so URLs work
@@ -50,7 +54,7 @@ client counts, or contact details, so placeholders stand in until the real
 values exist.
 
 Note: the business's legal identity (publisher name, SIRET, registered
-address, auto-entrepreneur status), contact email (Bonjour@cohostdordogne.com),
+address, auto-entrepreneur status), contact email (marloesmotta@gmail.com),
 WhatsApp number (+33 7 62 67 89 04) and the founder photo
 (`assets/images/founder.jpg`, used on the EN/FR/NL homepages and referenced
 in `LocalBusiness` JSON-LD everywhere) are **already filled in** — those are
@@ -128,8 +132,55 @@ plain Apache/Nginx server. In every case:
 4. If your host doesn't auto-detect `robots.txt` and `sitemap.xml` at the
    root, no action is needed — they're already plain files at the root and
    will be served like any other static file.
+5. **Enforce the canonical host — see below.** This step is not optional:
+   every page's `<link rel="canonical">` and JSON-LD point at
+   `https://cohostdordogne.com` (HTTPS, no `www`), so `http://` and `www.`
+   must redirect there or Google will index them as separate, competing
+   pages (this already happened once — see "Canonical host" below).
 
 No environment variables, no `.env` file, no server-side code, no database.
+
+## Canonical host (important — read before going live)
+
+Every page declares `https://cohostdordogne.com` (HTTPS, apex/no-`www`) as
+canonical via `<link rel="canonical">`, and `sitemap.xml` and every
+`hreflang`/JSON-LD `url` field agree. But **canonical tags are only a
+hint** — they don't stop Google from crawling and indexing `http://`,
+`www.`, or any other host variant that actually returns 200 OK. The only
+reliable fix is a **301 redirect at the hosting/DNS layer** that sends
+every variant to the canonical URL before the page is ever served.
+
+This repo ships redirect config for the most common static hosts so the
+right one is picked up automatically, with no other action needed on
+Netlify, Vercel, or plain Apache:
+
+- **Netlify** — `_redirects` (redirects `www.` and `http://` to
+  `https://cohostdordogne.com`; Netlify's own HTTPS enforcement handles
+  the rest).
+- **Vercel** — `vercel.json` (redirects `www.` to the apex; Vercel
+  enforces HTTPS on every domain automatically).
+- **Apache** (shared/VPS hosting) — `.htaccess` (forces HTTPS and
+  redirects `www.` to the apex via `mod_rewrite`; also wires up the
+  custom `404.html`).
+
+Hosts that don't read files for this and need dashboard configuration
+instead:
+
+- **GitHub Pages** — add a `CNAME` file containing `cohostdordogne.com`
+  (apex, no `www`), then in the repo's **Settings → Pages** tick
+  **Enforce HTTPS**. If DNS also points `www` at GitHub Pages, GitHub
+  redirects it to the apex domain in `CNAME` automatically.
+- **Cloudflare Pages** — set `cohostdordogne.com` as the primary custom
+  domain in the project's **Custom domains** settings, then add a
+  **Bulk Redirect** (or a Redirect Rule) sending `www.cohostdordogne.com/*`
+  and `http://cohostdordogne.com/*` to `https://cohostdordogne.com/$1`.
+  Cloudflare enforces HTTPS via "Always Use HTTPS" under SSL/TLS settings.
+
+**After changing hosts or DNS, verify the redirect actually fires** —
+e.g. `curl -I http://www.cohostdordogne.com/` should return a `301`
+pointing at `https://cohostdordogne.com/` — and re-check Google Search
+Console's **Pages** report after a few weeks to confirm only the apex
+HTTPS URLs are indexed.
 
 ## QA checklist
 
