@@ -27,7 +27,7 @@
 <meta name="twitter:image" content="https://cohostdordogne.com/assets/images/placeholder-hero.svg">
 
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/style.min.css?v=1">
 
 <style>
   body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:#231b14;background:#ffffff}
@@ -173,7 +173,7 @@
           </div>
         </div>
         <figure class="figure-placeholder hero-figure">
-          <img src="/assets/images/placeholder-hero.svg" alt="[PLACEHOLDER PHOTO] Maison en pierre du Périgord avec piscine, à remplacer par une vraie photo d'un bien géré" loading="lazy" width="800" height="600">
+          <img src="/assets/images/placeholder-hero.svg?v=1" alt="[PLACEHOLDER PHOTO] Maison en pierre du Périgord avec piscine, à remplacer par une vraie photo d'un bien géré" loading="eager" fetchpriority="high" width="800" height="600">
         </figure>
       </div>
     </div>
@@ -306,7 +306,10 @@
       </div>
       <div class="bento">
         <figure class="figure-placeholder block block-flush block-mist span-1">
-          <img src="/assets/images/founder.jpg" alt="Loulou Motta, fondatrice de CoHost Dordogne, devant une piscine surplombant la vallée de la Dordogne" loading="lazy" width="658" height="635">
+          <picture>
+            <source srcset="/assets/images/founder.webp?v=1" type="image/webp">
+            <img src="/assets/images/founder.jpg?v=1" alt="Loulou Motta, fondatrice de CoHost Dordogne, devant une piscine surplombant la vallée de la Dordogne" loading="lazy" width="658" height="635">
+          </picture>
         </figure>
         <div class="block block-sky span-1">
           <h3>Je vis ici, toute l'année</h3>

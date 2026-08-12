@@ -1,0 +1,27 @@
+# Netlify browser-caching rules.
+# CSS and photo/hero images are referenced with a "?v=N" cache-busting query
+# string in the HTML (bump it there when the file changes), so they're safe
+# to cache for a long time. The favicon isn't versioned, so it gets a
+# shorter cache. HTML pages are revalidated on every request.
+# See README.md "Browser caching" section.
+
+/css/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/assets/images/founder.jpg
+  Cache-Control: public, max-age=31536000, immutable
+
+/assets/images/founder.webp
+  Cache-Control: public, max-age=31536000, immutable
+
+/assets/images/placeholder-hero.svg
+  Cache-Control: public, max-age=31536000, immutable
+
+/favicon.svg
+  Cache-Control: public, max-age=604800
+
+/*.html
+  Cache-Control: public, max-age=0, must-revalidate
+
+/*/
+  Cache-Control: public, max-age=0, must-revalidate

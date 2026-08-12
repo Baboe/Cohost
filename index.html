@@ -27,7 +27,7 @@
 <meta name="twitter:image" content="https://cohostdordogne.com/assets/images/placeholder-hero.svg">
 
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/style.min.css?v=1">
 
 <style>
   /* Critical, above-the-fold CSS */
@@ -174,7 +174,7 @@
           </div>
         </div>
         <figure class="figure-placeholder hero-figure">
-          <img src="/assets/images/placeholder-hero.svg" alt="[PLACEHOLDER PHOTO] Stone-built Périgord property with pool, to be replaced with a real photo of a managed home" loading="lazy" width="800" height="600">
+          <img src="/assets/images/placeholder-hero.svg?v=1" alt="[PLACEHOLDER PHOTO] Stone-built Périgord property with pool, to be replaced with a real photo of a managed home" loading="eager" fetchpriority="high" width="800" height="600">
         </figure>
       </div>
     </div>
@@ -307,7 +307,10 @@
       </div>
       <div class="bento">
         <figure class="figure-placeholder block block-flush block-mist span-1">
-          <img src="/assets/images/founder.jpg" alt="Loulou Motta, founder of CoHost Dordogne, standing by a pool overlooking the Dordogne valley" loading="lazy" width="658" height="635">
+          <picture>
+            <source srcset="/assets/images/founder.webp?v=1" type="image/webp">
+            <img src="/assets/images/founder.jpg?v=1" alt="Loulou Motta, founder of CoHost Dordogne, standing by a pool overlooking the Dordogne valley" loading="lazy" width="658" height="635">
+          </picture>
         </figure>
         <div class="block block-sky span-1">
           <h3>I live here, year-round</h3>

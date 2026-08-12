@@ -16,15 +16,18 @@ whole site works, including navigation between pages.
 /nl/                                 Dutch homepage ("beheer vakantiehuis Dordogne")
 /airbnb-management-bergerac/         English local landing page
 /reglementation-meubles-tourisme-2025/   French registration guide (informational, not a sales page)
+/sterrendossier/                     Dutch-language paid report landing page
 /mentions-legales/                   French legal notice + privacy section (required by French law)
-/css/style.css                       Shared stylesheet (all pages)
-/assets/images/                      SVG placeholder images + favicon
+/css/style.css                       Shared stylesheet source (edit this one)
+/css/style.min.css                   Minified stylesheet (generated — what pages actually link to)
+/assets/images/                      Founder photo (JPEG + WebP), SVG placeholder hero image, favicon
 /robots.txt
 /sitemap.xml
 /404.html                            Custom not-found page (noindex)
 /_redirects                          Netlify: canonical-host redirects
-/vercel.json                         Vercel: canonical-host redirects
-/.htaccess                           Apache: canonical-host redirects + 404 wiring
+/_headers                            Netlify: browser-caching headers
+/vercel.json                         Vercel: canonical-host redirects + browser-caching headers
+/.htaccess                           Apache: canonical-host redirects, 404 wiring, browser-caching headers
 ```
 
 Every page is a self-contained `index.html` in its own folder, so URLs work
@@ -43,7 +46,7 @@ across all files will catch every one. Search the whole project for
 |---|---|---|
 | `[PLACEHOLDER: FORM ENDPOINT URL]` | The `<form action="...">` on every page with a contact form | See **Swapping the contact form endpoint** below |
 | `[PLACEHOLDER: STRIPE PAYMENT LINK URL]` | `/sterrendossier/` only — the two "Bestel je Sterrendossier" buttons | See **Swapping the Stripe payment link** below |
-| `[PLACEHOLDER PHOTO]` / `[PLACEHOLDER FOTO]` | Hero property photo (SVG placeholder, `assets/images/placeholder-hero.svg`), used on every homepage/landing page and as the default social-share image for every page | Replace the `<img src="...">` with a real photo, update the `alt` text to describe the real image, and remove the `[PLACEHOLDER]` caption text underneath |
+| `[PLACEHOLDER PHOTO]` / `[PLACEHOLDER FOTO]` | Hero property photo (SVG placeholder, `assets/images/placeholder-hero.svg`), used on every homepage/landing page and as the default social-share image for every page | Replace the `<img src="...">` with a real photo, update the `alt` text to describe the real image, and remove the `[PLACEHOLDER]` caption text underneath. Since images are cached for a year by returning visitors (see **Browser caching** below), also bump the `?v=1` query string on the `src`/`srcset` to `?v=2` everywhere the file is referenced, so the new photo isn't hidden behind a stale cache. If the new photo is a JPEG, regenerate the WebP too (see below) |
 | `[PLACEHOLDER: nom de l'hébergeur]` / `[PLACEHOLDER: adresse de l'hébergeur]` / `[PLACEHOLDER: site web ou contact de l'hébergeur]` | `/mentions-legales/` only | Fill in with your actual hosting provider's name, registered address and contact once you've chosen where to deploy — required by French law |
 | `[PLACEHOLDER: nom et coordonnées du médiateur de la consommation...]` | `/mentions-legales/` only | French consumer-mediation clause. If you're not required to designate one (check with an accountant/lawyer), you can remove this paragraph instead of filling it in |
 
@@ -58,9 +61,15 @@ address, auto-entrepreneur status), contact email (marloesmotta@gmail.com),
 WhatsApp number (+33 7 62 67 89 04) and the founder photo
 (`assets/images/founder.jpg`, used on the EN/FR/NL homepages and referenced
 in `LocalBusiness` JSON-LD everywhere) are **already filled in** — those are
-not placeholders. The IBAN provided during the build was deliberately
-**left out of the site entirely**, since a bank account number isn't
-required for `mentions légales` and only adds fraud/phishing surface.
+not placeholders. `assets/images/founder.webp` is a pre-generated WebP copy
+served to browsers that support it — regenerate it after replacing the
+JPEG, e.g. `cwebp -q 82 founder.jpg -o founder.webp`, or with Pillow:
+`python3 -c "from PIL import Image; Image.open('founder.jpg').convert('RGB').save('founder.webp','WEBP',quality=82)"`
+(see **Browser caching** below for the cache-busting note if you ever
+replace the photo).
+The IBAN provided during the build was deliberately **left out of the site
+entirely**, since a bank account number isn't required for `mentions
+légales` and only adds fraud/phishing surface.
 
 Only the **hero property photo** still needs a real image — see the table
 above.
@@ -181,6 +190,31 @@ e.g. `curl -I http://www.cohostdordogne.com/` should return a `301`
 pointing at `https://cohostdordogne.com/` — and re-check Google Search
 Console's **Pages** report after a few weeks to confirm only the apex
 HTTPS URLs are indexed.
+
+## Browser caching
+
+CSS and images are served with a long (`max-age=31536000, immutable`,
+i.e. one year) `Cache-Control` header, configured for the same three hosts
+as the redirects above — `_headers` (Netlify), `vercel.json` (Vercel) and
+`.htaccess` (Apache). HTML pages are served with
+`max-age=0, must-revalidate` so page-copy edits show up immediately.
+
+Because the CSS and image files aren't fingerprinted by a build step, the
+long cache is made safe with a manual cache-busting convention instead: every
+`<link>`/`<img src>`/`<source srcset>` that points at `/css/style.min.css`
+or `/assets/images/*` has a `?v=1` query string appended. **Whenever you
+edit `css/style.css` or replace an image file, bump that version number
+in every HTML file that references it** (a project-wide find-and-replace
+of `?v=1` → `?v=2` for the file you changed is enough) — otherwise
+returning visitors keep seeing the cached, stale version for up to a year.
+`favicon.svg` isn't versioned and gets a shorter one-week cache instead,
+since it changes rarely and a week's staleness is harmless.
+
+`css/style.css` is the editable source; `css/style.min.css` (generated with
+`npx clean-css-cli -o css/style.min.css css/style.css`) is what every page
+actually links to, since it's ~25% smaller. **Regenerate it after editing
+`css/style.css`** — the two files are not kept in sync automatically, since
+there's no build step.
 
 ## QA checklist
 
