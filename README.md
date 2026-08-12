@@ -54,7 +54,7 @@ client counts, or contact details, so placeholders stand in until the real
 values exist.
 
 Note: the business's legal identity (publisher name, SIRET, registered
-address, auto-entrepreneur status), contact email (Bonjour@cohostdordogne.com),
+address, auto-entrepreneur status), contact email (marloesmotta@gmail.com),
 WhatsApp number (+33 7 62 67 89 04) and the founder photo
 (`assets/images/founder.jpg`, used on the EN/FR/NL homepages and referenced
 in `LocalBusiness` JSON-LD everywhere) are **already filled in** — those are
