@@ -41,13 +41,16 @@
 {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
+  "@id": "https://cohostdordogne.com/#business",
   "name": "CoHost Dordogne",
-  "description": "Co-hosting op afstand voor eigenaren van gîtes en vakantiehuizen rond Bergerac, Sarlat, Eymet, Issigeac en Périgueux die zelf niet in Frankrijk wonen.",
+  "description": "Co-hosting op afstand voor eigenaren van gîtes en vakantiehuizen rond Bergerac, Sarlat, Eymet, Lalinde, Issigeac en Périgueux die zelf niet in Frankrijk wonen.",
   "image": "https://cohostdordogne.com/assets/images/founder.jpg",
   "url": "https://cohostdordogne.com/nl/",
   "telephone": "+33 7 62 67 89 04",
   "email": "marloesmotta@gmail.com",
   "priceRange": "€€",
+  "currenciesAccepted": "EUR",
+  "paymentAccepted": "Bankoverschrijving, cheque, factuur, creditcard (Stripe)",
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "5 Route du Château d'Eau",
@@ -56,7 +59,35 @@
     "addressRegion": "Dordogne",
     "addressCountry": "FR"
   },
-  "areaServed": ["Bergerac", "Sarlat-la-Canéda", "Eymet", "Issigeac", "Périgueux"],
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 44.855,
+    "longitude": 0.597
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+      "opens": "09:00",
+      "closes": "19:00",
+      "description": "Op afspraak — telefoon of WhatsApp"
+    }
+  ],
+  "areaServed": [
+    { "@type": "City", "name": "Bergerac" },
+    { "@type": "City", "name": "Eymet" },
+    { "@type": "City", "name": "Lalinde" },
+    { "@type": "City", "name": "Issigeac" },
+    { "@type": "City", "name": "Sainte-Foy-la-Grande" },
+    { "@type": "City", "name": "Monbazillac" },
+    { "@type": "City", "name": "Sarlat-la-Canéda" },
+    { "@type": "City", "name": "Périgueux" },
+    {
+      "@type": "GeoCircle",
+      "geoMidpoint": { "@type": "GeoCoordinates", "latitude": 44.85, "longitude": 0.48 },
+      "geoRadius": "30000"
+    }
+  ],
   "sameAs": []
 }
 </script>
@@ -79,7 +110,7 @@
       "name": "Welke gebieden bedient u?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Panden rond Bergerac, Sarlat, Eymet, Issigeac, Périgueux en de dorpen daartussen. Verder weg? Vraag het toch."
+        "text": "Panden rond Bergerac, Sarlat, Eymet, Lalinde, Issigeac, Périgueux en de dorpen daartussen. Verder weg? Vraag het toch."
       }
     },
     {
@@ -104,6 +135,14 @@
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "Ik leg graag uit wat de registratie inhoudt en verwijs u naar het juiste lokale loket. Ik ben geen jurist of boekhouder — voor formeel fiscaal of juridisch advies verwijs ik u door naar een gekwalificeerd persoon."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Hoe kan ik betalen?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Per bankoverschrijving, cheque of factuur — wat u het beste uitkomt. Liever met kaart betalen? Dan stuur ik u een Stripe-betaallink."
       }
     }
   ]
@@ -330,6 +369,20 @@
     </div>
   </section>
 
+  <section id="werkgebied" class="section">
+    <div class="container">
+      <div class="section-intro">
+        <h2>Waar ik werk</h2>
+        <p>Gevestigd in Mouleydier, een paar minuten van Bergerac en het kleine vliegveld — dichtbij genoeg om een pand persoonlijk te bekijken, niet alleen telefonisch.</p>
+      </div>
+      <div class="bento">
+        <div class="block block-mist span-4">
+          <p>De meeste panden die ik beheer liggen op ongeveer een half uur van Bergerac: <strong>Eymet</strong>, een bastide met een gevestigde Britse gemeenschap; <strong>Lalinde</strong>, aan de Dordogne richting de Périgord Noir; <strong>Issigeac</strong>, een rond middeleeuws dorp dat vol loopt op marktdag; <strong>Sainte-Foy-la-Grande</strong>, stroomafwaarts richting de Gironde; en <strong>Monbazillac</strong>, waar de wijngaarden en het kasteel boven de vallei uittorenen. Dichterbij horen daar de dorpen rond Mouleydier zelf bij — <strong>Creysse</strong>, <strong>La Force</strong>, <strong>Prigonrieux</strong>, <strong>Lamonzie-Saint-Martin</strong> en <strong>Saint-Nexans</strong>. Verder weg beheer ik ook panden bij <strong>Sarlat</strong> en <strong>Périgueux</strong>. Zie de <a href="/airbnb-management-bergerac/">Bergerac-pagina</a> (Engels) voor wat er per stad verschilt — en als uw gîte ergens daartussenin ligt, vraag het toch.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="section">
     <div class="container">
       <div class="section-intro">
@@ -357,7 +410,7 @@
           </details>
           <details class="faq-item">
             <summary>Welke gebieden bedient u?</summary>
-            <p>Panden rond Bergerac, Sarlat, Eymet, Issigeac, Périgueux en de dorpen daartussen. Verder weg? Vraag het toch.</p>
+            <p>Panden rond Bergerac, Sarlat, Eymet, Lalinde, Issigeac, Périgueux en de dorpen daartussen. Verder weg? Vraag het toch.</p>
           </details>
           <details class="faq-item">
             <summary>Ik heb al iemand voor de schoonmaak. Moet ik overstappen?</summary>
@@ -370,6 +423,10 @@
           <details class="faq-item">
             <summary>Kunt u helpen met de registratie als meublé de tourisme?</summary>
             <p>Ik leg graag uit wat de registratie inhoudt en verwijs u naar het juiste lokale loket, in het Engels of Nederlands. Ik ben geen jurist of boekhouder — voor formeel fiscaal of juridisch advies verwijs ik u door naar een gekwalificeerd persoon. Zie de <a href="/reglementation-meubles-tourisme-2025/">registratiegids</a> (Frans) voor de details.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Hoe kan ik betalen?</summary>
+            <p>Per bankoverschrijving, cheque of factuur — wat u het beste uitkomt. Liever met kaart betalen? Dan stuur ik u een Stripe-betaallink.</p>
           </details>
         </div>
       </div>
@@ -416,6 +473,7 @@
               <p>Geen JavaScript nodig — schrijf direct.</p>
               <p>E-mail: <a href="mailto:marloesmotta@gmail.com">marloesmotta@gmail.com</a></p>
               <p>WhatsApp: <a href="https://wa.me/33762678904">+33 7 62 67 89 04</a></p>
+              <p>Doorgaans bereikbaar per telefoon of WhatsApp, maandag t/m zaterdag, 9.00–19.00 uur, op afspraak.</p>
             </div>
           </div>
         </div>
@@ -430,7 +488,7 @@
     <div class="footer-grid">
       <div>
         <h3>CoHost Dordogne</h3>
-        <p>Co-hosting op afstand voor eigenaren rond Bergerac, Sarlat, Eymet, Issigeac en Périgueux.</p>
+        <p>Co-hosting op afstand voor eigenaren rond Bergerac, Sarlat, Eymet, Lalinde, Issigeac en Périgueux.</p>
       </div>
       <div>
         <h3>Pagina's</h3>
@@ -450,9 +508,10 @@
         <h3>Contact</h3>
         <ul>
           <li><a href="mailto:marloesmotta@gmail.com">marloesmotta@gmail.com</a></li>
+          <li><a href="tel:+33762678904">+33 7 62 67 89 04</a></li>
           <li><a href="https://wa.me/33762678904">WhatsApp</a></li>
-          <li>Mouleydier, Frankrijk</li>
         </ul>
+        <address>CoHost Dordogne<br>5 Route du Château d'Eau<br>24520 Mouleydier, Frankrijk</address>
       </div>
     </div>
     <div class="footer-bottom">

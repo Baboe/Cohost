@@ -42,13 +42,16 @@
 {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
+  "@id": "https://cohostdordogne.com/#business",
   "name": "CoHost Dordogne",
-  "description": "Remote co-hosting management for absentee owners of holiday homes around Bergerac, Sarlat, Eymet, Issigeac and Périgueux.",
+  "description": "Remote co-hosting management for absentee owners of holiday homes around Bergerac, Sarlat, Eymet, Lalinde, Issigeac and Périgueux.",
   "image": "https://cohostdordogne.com/assets/images/founder.jpg",
   "url": "https://cohostdordogne.com/",
   "telephone": "+33 7 62 67 89 04",
   "email": "marloesmotta@gmail.com",
   "priceRange": "€€",
+  "currenciesAccepted": "EUR",
+  "paymentAccepted": "Bank transfer, Cheque, Invoice, Credit card (Stripe)",
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "5 Route du Château d'Eau",
@@ -57,7 +60,35 @@
     "addressRegion": "Dordogne",
     "addressCountry": "FR"
   },
-  "areaServed": ["Bergerac", "Sarlat-la-Canéda", "Eymet", "Issigeac", "Périgueux"],
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 44.855,
+    "longitude": 0.597
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+      "opens": "09:00",
+      "closes": "19:00",
+      "description": "By appointment — phone or WhatsApp"
+    }
+  ],
+  "areaServed": [
+    { "@type": "City", "name": "Bergerac" },
+    { "@type": "City", "name": "Eymet" },
+    { "@type": "City", "name": "Lalinde" },
+    { "@type": "City", "name": "Issigeac" },
+    { "@type": "City", "name": "Sainte-Foy-la-Grande" },
+    { "@type": "City", "name": "Monbazillac" },
+    { "@type": "City", "name": "Sarlat-la-Canéda" },
+    { "@type": "City", "name": "Périgueux" },
+    {
+      "@type": "GeoCircle",
+      "geoMidpoint": { "@type": "GeoCoordinates", "latitude": 44.85, "longitude": 0.48 },
+      "geoRadius": "30000"
+    }
+  ],
   "sameAs": []
 }
 </script>
@@ -80,7 +111,7 @@
       "name": "Which areas do you cover?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Properties around Bergerac, Sarlat, Eymet, Issigeac, Périgueux and the villages between them. If you're further out, ask — I may still be able to help."
+        "text": "Properties around Bergerac, Sarlat, Eymet, Lalinde, Issigeac, Périgueux and the villages between them. If you're further out, ask — I may still be able to help."
       }
     },
     {
@@ -105,6 +136,14 @@
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "I can guide you through what the registration involves and point you to the right local office, in plain English or Dutch. I'm not a lawyer or accountant, so for formal tax or legal advice I'll point you to someone qualified."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How can I pay you?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Bank transfer, cheque or invoice — whichever is easiest for you. If you'd rather pay by card, I can send a Stripe payment link instead."
       }
     }
   ]
@@ -332,6 +371,20 @@
     </div>
   </section>
 
+  <section id="service-area" class="section">
+    <div class="container">
+      <div class="section-intro">
+        <h2>Where I work</h2>
+        <p>Based in Mouleydier, a few minutes from Bergerac and its small airport — close enough to check on a property in person, not just by phone.</p>
+      </div>
+      <div class="bento">
+        <div class="block block-mist span-4">
+          <p>Most of the properties I manage sit within about half an hour of Bergerac: <strong>Eymet</strong>, a bastide with a long-established British community; <strong>Lalinde</strong>, on the Dordogne toward the Périgord Noir; <strong>Issigeac</strong>, a circular medieval village that fills on market day; <strong>Sainte-Foy-la-Grande</strong>, downstream toward the Gironde; and <strong>Monbazillac</strong>, where the vineyards and château sit above the valley. Closer in, that includes the villages around Mouleydier itself — <strong>Creysse</strong>, <strong>La Force</strong>, <strong>Prigonrieux</strong>, <strong>Lamonzie-Saint-Martin</strong> and <strong>Saint-Nexans</strong>. Further out, I also manage properties near <strong>Sarlat</strong> and <strong>Périgueux</strong>. See the <a href="/airbnb-management-bergerac/">Bergerac area page</a> for what changes town by town, or the <a href="/airbnb-management-dordogne/">full list of areas covered</a> — and if your gîte sits somewhere in between, ask anyway.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="section">
     <div class="container">
       <div class="section-intro">
@@ -360,7 +413,7 @@
           </details>
           <details class="faq-item">
             <summary>Which areas do you cover?</summary>
-            <p>Properties around Bergerac, Sarlat, Eymet, Issigeac, Périgueux and the villages between them. Further out? Ask anyway.</p>
+            <p>Properties around Bergerac, Sarlat, Eymet, Lalinde, Issigeac, Périgueux and the villages between them. Further out? Ask anyway.</p>
           </details>
           <details class="faq-item">
             <summary>I already have a cleaner. Do I have to switch?</summary>
@@ -373,6 +426,10 @@
           <details class="faq-item">
             <summary>Can you help with French meublé de tourisme registration?</summary>
             <p>I can guide you through what the registration involves and point you to the right local office, in plain English or Dutch. I'm not a lawyer or accountant — for formal tax or legal advice I'll point you to someone qualified. See the <a href="/reglementation-meubles-tourisme-2025/">registration guide</a> for the details.</p>
+          </details>
+          <details class="faq-item">
+            <summary>How can I pay you?</summary>
+            <p>Bank transfer, cheque or invoice — whichever is easiest for you. If you'd rather pay by card, I can send a Stripe payment link instead.</p>
           </details>
         </div>
       </div>
@@ -419,6 +476,7 @@
               <p>No JavaScript required — write directly instead.</p>
               <p>Email: <a href="mailto:marloesmotta@gmail.com">marloesmotta@gmail.com</a></p>
               <p>WhatsApp: <a href="https://wa.me/33762678904">+33 7 62 67 89 04</a></p>
+              <p>Usually reachable by phone or WhatsApp Monday–Saturday, 9am–7pm, by appointment.</p>
             </div>
           </div>
         </div>
@@ -433,7 +491,7 @@
     <div class="footer-grid">
       <div>
         <h3>CoHost Dordogne</h3>
-        <p>Remote co-hosting for absentee owners around Bergerac, Sarlat, Eymet, Issigeac and Périgueux.</p>
+        <p>Remote co-hosting for absentee owners around Bergerac, Sarlat, Eymet, Lalinde, Issigeac and Périgueux.</p>
       </div>
       <div>
         <h3>Pages</h3>
@@ -453,9 +511,10 @@
         <h3>Contact</h3>
         <ul>
           <li><a href="mailto:marloesmotta@gmail.com">marloesmotta@gmail.com</a></li>
+          <li><a href="tel:+33762678904">+33 7 62 67 89 04</a></li>
           <li><a href="https://wa.me/33762678904">WhatsApp</a></li>
-          <li>Mouleydier, France</li>
         </ul>
+        <address>CoHost Dordogne<br>5 Route du Château d'Eau<br>24520 Mouleydier, France</address>
       </div>
     </div>
     <div class="footer-bottom">
