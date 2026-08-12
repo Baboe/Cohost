@@ -34,6 +34,7 @@
 {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
+  "@id": "https://cohostdordogne.com/#business",
   "name": "CoHost Dordogne",
   "description": "Remote co-hosting and Airbnb management for owners of short-term rentals in Bergerac and the surrounding Dordogne countryside.",
   "image": "https://cohostdordogne.com/assets/images/founder.jpg",
@@ -41,6 +42,8 @@
   "telephone": "+33 7 62 67 89 04",
   "email": "marloesmotta@gmail.com",
   "priceRange": "€€",
+  "currenciesAccepted": "EUR",
+  "paymentAccepted": "Bank transfer, Cheque, Invoice, Credit card (Stripe)",
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "5 Route du Château d'Eau",
@@ -49,7 +52,38 @@
     "addressRegion": "Dordogne",
     "addressCountry": "FR"
   },
-  "areaServed": ["Bergerac", "La Force", "Creysse", "Lamonzie-Saint-Martin", "Saint-Nexans", "Monbazillac", "Prigonrieux"],
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 44.855,
+    "longitude": 0.597
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+      "opens": "09:00",
+      "closes": "19:00",
+      "description": "By appointment — phone or WhatsApp"
+    }
+  ],
+  "areaServed": [
+    { "@type": "City", "name": "Bergerac" },
+    { "@type": "City", "name": "La Force" },
+    { "@type": "City", "name": "Creysse" },
+    { "@type": "City", "name": "Lamonzie-Saint-Martin" },
+    { "@type": "City", "name": "Saint-Nexans" },
+    { "@type": "City", "name": "Monbazillac" },
+    { "@type": "City", "name": "Prigonrieux" },
+    { "@type": "City", "name": "Eymet" },
+    { "@type": "City", "name": "Lalinde" },
+    { "@type": "City", "name": "Issigeac" },
+    { "@type": "City", "name": "Sainte-Foy-la-Grande" },
+    {
+      "@type": "GeoCircle",
+      "geoMidpoint": { "@type": "GeoCoordinates", "latitude": 44.85, "longitude": 0.48 },
+      "geoRadius": "30000"
+    }
+  ],
   "sameAs": []
 }
 </script>
@@ -194,7 +228,7 @@
     <div class="container">
       <div class="section-intro">
         <h2>The area I actually cover</h2>
-        <p>Bergerac town itself, and the villages around it: La Force, Creysse, Lamonzie-Saint-Martin, Saint-Nexans, Monbazillac and Prigonrieux. From there the coverage stretches out toward Sarlat, Eymet, Issigeac and Périgueux — if your property sits somewhere between, ask anyway.</p>
+        <p>Bergerac town itself, and the villages around it: La Force, Creysse, Lamonzie-Saint-Martin, Saint-Nexans, Monbazillac and Prigonrieux. From there the coverage stretches out toward Lalinde, Sainte-Foy-la-Grande, Sarlat, Eymet, Issigeac and Périgueux — if your property sits somewhere between, ask anyway.</p>
       </div>
       <div class="bento">
         <div class="block block-coral span-4">
@@ -212,6 +246,10 @@
         <div class="block block-mist span-2">
           <h3>Lamonzie-Saint-Martin, Saint-Nexans &amp; Prigonrieux</h3>
           <p>The quieter communes in the Bergerac orbit — countryside and commuter villages, close to town, without a landmark of their own to send footfall past your gate. Nothing passively finds you here, which changes the job rather than making it harder. Guests choose these properties deliberately, usually for the house itself: a pool, a garden, quiet, room for two families. That puts the weight on photography and on being honest about drive times to Bergerac and Monbazillac, because a guest who feels misled about distance says so in the review.</p>
+        </div>
+        <div class="block block-coral span-2">
+          <h3>Lalinde and Sainte-Foy-la-Grande</h3>
+          <p>Lalinde is a bastide on the Dordogne with its own lock on the river — a put-in point for the canoe traffic that follows the valley all summer, and close enough to Bergerac that owners here still expect a same-day answer, not a next-week one. Sainte-Foy-la-Grande, downstream toward the Gironde border, is a smaller bastide with its own Saturday market and a steadier, more local rhythm than the height of the Bergerac season. Both need pricing and photos that read as their own town, not a generic "near Bergerac" listing.</p>
         </div>
         <div class="block block-cream span-2">
           <h3>Further out — Sarlat, Eymet, Issigeac, Périgueux</h3>
@@ -282,7 +320,7 @@
           </details>
           <details class="faq-item">
             <summary>Do you cover villages outside Bergerac itself?</summary>
-            <p>Yes — La Force, Creysse, Lamonzie-Saint-Martin, Saint-Nexans, Monbazillac, Prigonrieux and the wider countryside around Bergerac, as well as further out toward Sarlat, Eymet, Issigeac and Périgueux.</p>
+            <p>Yes — La Force, Creysse, Lamonzie-Saint-Martin, Saint-Nexans, Monbazillac, Prigonrieux and the wider countryside around Bergerac, plus Lalinde and Sainte-Foy-la-Grande along the river, and further out toward Sarlat, Eymet, Issigeac and Périgueux.</p>
           </details>
           <details class="faq-item">
             <summary>What happens when guests fly into Bergerac airport?</summary>
@@ -347,7 +385,7 @@
     <div class="footer-grid">
       <div>
         <h3>CoHost Dordogne</h3>
-        <p>Remote co-hosting for absentee owners around Bergerac, Sarlat, Eymet, Issigeac and Périgueux.</p>
+        <p>Remote co-hosting for absentee owners around Bergerac, Sarlat, Eymet, Lalinde, Issigeac and Périgueux.</p>
       </div>
       <div>
         <h3>Pages</h3>
@@ -366,9 +404,10 @@
         <h3>Contact</h3>
         <ul>
           <li><a href="mailto:marloesmotta@gmail.com">marloesmotta@gmail.com</a></li>
+          <li><a href="tel:+33762678904">+33 7 62 67 89 04</a></li>
           <li><a href="https://wa.me/33762678904">WhatsApp</a></li>
-          <li>Mouleydier, France</li>
         </ul>
+        <address>CoHost Dordogne<br>5 Route du Château d'Eau<br>24520 Mouleydier, France</address>
       </div>
     </div>
     <div class="footer-bottom">
