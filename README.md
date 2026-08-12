@@ -46,16 +46,14 @@ and web server).
 
 ## Placeholders to replace before launch
 
-Every placeholder in the source is wrapped in `[PLACEHOLDER: ...]` (or
-`[PLACEHOLDER PHOTO]` / `[PLACEHOLDER FOTO]` for images) so a find-and-replace
-across all files will catch every one. Search the whole project for
-`PLACEHOLDER` to find them all; here's what each group means:
+Every placeholder in the source is wrapped in `[PLACEHOLDER: ...]` so a
+find-and-replace across all files will catch every one. Search the whole
+project for `PLACEHOLDER` to find them all; here's what each group means:
 
 | Placeholder | Appears in | What to do |
 |---|---|---|
 | `[PLACEHOLDER: FORM ENDPOINT URL]` | The `<form action="...">` on every page with a contact form | See **Swapping the contact form endpoint** below |
 | `[PLACEHOLDER: STRIPE PAYMENT LINK URL]` | `/sterrendossier/` only — the two "Bestel je Sterrendossier" buttons | See **Swapping the Stripe payment link** below |
-| `[PLACEHOLDER PHOTO]` / `[PLACEHOLDER FOTO]` | Hero property photo (SVG placeholder, `assets/images/placeholder-hero.svg`), used on every homepage/landing page and as the default social-share image for every page | Replace the `<img src="...">` with a real photo, update the `alt` text to describe the real image, and remove the `[PLACEHOLDER]` caption text underneath |
 | `[PLACEHOLDER: nom de l'hébergeur]` / `[PLACEHOLDER: adresse de l'hébergeur]` / `[PLACEHOLDER: site web ou contact de l'hébergeur]` | `/mentions-legales/` only | Fill in with your actual hosting provider's name, registered address and contact once you've chosen where to deploy — required by French law |
 | `[PLACEHOLDER: nom et coordonnées du médiateur de la consommation...]` | `/mentions-legales/` only | French consumer-mediation clause. If you're not required to designate one (check with an accountant/lawyer), you can remove this paragraph instead of filling it in |
 
