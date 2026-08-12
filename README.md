@@ -14,8 +14,13 @@ whole site works, including navigation between pages.
 /                                    English homepage
 /fr/                                 French homepage ("conciergerie Airbnb Bergerac")
 /nl/                                 Dutch homepage ("beheer vakantiehuis Dordogne")
-/airbnb-management-bergerac/         English local landing page
+/our-process/                        English "how it works" fee/process breakdown
+/blog/                               English blog index
+/blog/airbnb-regulations-tax-dordogne/   English blog post: regulations & tax for foreign owners
+/airbnb-management-dordogne/         English locations hub — links out to every area covered
+/airbnb-management-bergerac/         English local landing page (Bergerac)
 /reglementation-meubles-tourisme-2025/   French registration guide (informational, not a sales page)
+/sterrendossier/                     Dutch pre-sale landing page (classement pre-check)
 /mentions-legales/                   French legal notice + privacy section (required by French law)
 /css/style.css                       Shared stylesheet (all pages)
 /assets/images/                      SVG placeholder images + favicon
@@ -26,6 +31,13 @@ whole site works, including navigation between pages.
 /vercel.json                         Vercel: canonical-host redirects
 /.htaccess                           Apache: canonical-host redirects + 404 wiring
 ```
+
+Only Bergerac has its own detailed local-SEO landing page today. The other
+areas served (Sarlat, Eymet, Issigeac, Périgueux) are listed on the
+`/airbnb-management-dordogne/` hub with short, honest summaries and a direct
+contact link — build out a dedicated page per area, following the Bergerac
+page's structure, once there's enough real local detail to fill one without
+padding it.
 
 Every page is a self-contained `index.html` in its own folder, so URLs work
 without a `.html` extension on any static host that serves `folder/index.html`
