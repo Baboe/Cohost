@@ -34,6 +34,7 @@
 {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
+  "@id": "https://cohostdordogne.com/#business",
   "name": "CoHost Dordogne",
   "description": "Remote co-hosting and Airbnb management for owners of short-term rentals in Bergerac and the surrounding Dordogne countryside.",
   "image": "https://cohostdordogne.com/assets/images/founder.jpg",
@@ -41,6 +42,8 @@
   "telephone": "+33 7 62 67 89 04",
   "email": "marloesmotta@gmail.com",
   "priceRange": "€€",
+  "currenciesAccepted": "EUR",
+  "paymentAccepted": "Bank transfer, Cheque, Invoice, Credit card (Stripe)",
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "5 Route du Château d'Eau",
@@ -49,7 +52,35 @@
     "addressRegion": "Dordogne",
     "addressCountry": "FR"
   },
-  "areaServed": ["Bergerac", "Sarlat-la-Canéda", "Eymet", "Issigeac", "Périgueux"],
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 44.855,
+    "longitude": 0.597
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+      "opens": "09:00",
+      "closes": "19:00",
+      "description": "By appointment — phone or WhatsApp"
+    }
+  ],
+  "areaServed": [
+    { "@type": "City", "name": "Bergerac" },
+    { "@type": "City", "name": "Eymet" },
+    { "@type": "City", "name": "Lalinde" },
+    { "@type": "City", "name": "Issigeac" },
+    { "@type": "City", "name": "Sainte-Foy-la-Grande" },
+    { "@type": "City", "name": "Monbazillac" },
+    { "@type": "City", "name": "Sarlat-la-Canéda" },
+    { "@type": "City", "name": "Périgueux" },
+    {
+      "@type": "GeoCircle",
+      "geoMidpoint": { "@type": "GeoCoordinates", "latitude": 44.85, "longitude": 0.48 },
+      "geoRadius": "30000"
+    }
+  ],
   "sameAs": []
 }
 </script>
@@ -225,7 +256,7 @@
       <div class="section-intro">
         <h2>Why local matters to the process</h2>
         <p class="accent-copy accent-copy--coral">I live near Bergerac, not in an office in another country with a rota of people who've never seen the Dordogne. If a guest reports something that sounds worse than it reads, I can drive over and look at it, which is a different thing from relaying it to you and waiting.</p>
-        <p>It also means I know what local cleaners charge and can coordinate them directly, rather than through an agency layer that takes its cut for making the same phone call. I can walk you through what meublé de tourisme registration involves and where it gets done — though for anything that's genuinely tax or legal advice, I'll send you to someone qualified rather than guess. And guests get replies in Dutch, English and French — the three languages this corner of France actually runs on — rather than one default language and an apology. That applies across Bergerac, Sarlat, Eymet, Issigeac, Périgueux and the villages between.</p>
+        <p>It also means I know what local cleaners charge and can coordinate them directly, rather than through an agency layer that takes its cut for making the same phone call. I can walk you through what meublé de tourisme registration involves and where it gets done — though for anything that's genuinely tax or legal advice, I'll send you to someone qualified rather than guess. And guests get replies in Dutch, English and French — the three languages this corner of France actually runs on — rather than one default language and an apology. That applies across Bergerac, Sarlat, Eymet, Lalinde, Issigeac, Périgueux and the villages between.</p>
       </div>
     </div>
   </section>
@@ -294,7 +325,7 @@
     <div class="footer-grid">
       <div>
         <h3>CoHost Dordogne</h3>
-        <p>Remote co-hosting for absentee owners around Bergerac, Sarlat, Eymet, Issigeac and Périgueux.</p>
+        <p>Remote co-hosting for absentee owners around Bergerac, Sarlat, Eymet, Lalinde, Issigeac and Périgueux.</p>
       </div>
       <div>
         <h3>Pages</h3>
@@ -313,9 +344,10 @@
         <h3>Contact</h3>
         <ul>
           <li><a href="mailto:marloesmotta@gmail.com">marloesmotta@gmail.com</a></li>
+          <li><a href="tel:+33762678904">+33 7 62 67 89 04</a></li>
           <li><a href="https://wa.me/33762678904">WhatsApp</a></li>
-          <li>Mouleydier, France</li>
         </ul>
+        <address>CoHost Dordogne<br>5 Route du Château d'Eau<br>24520 Mouleydier, France</address>
       </div>
     </div>
     <div class="footer-bottom">
